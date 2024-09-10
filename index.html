@@ -1,0 +1,1762 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <style> .leaflet-container { background-color: rgba(255, 255, 255, 0.5) !important; }</style>
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a38f4ee2ace1fd30cbffdcda265abce0 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a38f4ee2ace1fd30cbffdcda265abce0" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a38f4ee2ace1fd30cbffdcda265abce0 = L.map(
+                "map_a38f4ee2ace1fd30cbffdcda265abce0",
+                {
+                    center: [23.968842, 120.967903],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7.25,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_afbf3c3161a013c9c45bffd83b4cb2b1 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 20, "maxZoom": 20, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abcd", "tms": false}
+            );
+        
+    
+            tile_layer_afbf3c3161a013c9c45bffd83b4cb2b1.addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+    var color_map_ea722fb3f15537fd9453a86306a9d04d = {};
+
+    
+    color_map_ea722fb3f15537fd9453a86306a9d04d.color = d3.scale.threshold()
+              .domain([0.0, 0.06012024048096192, 0.12024048096192384, 0.18036072144288579, 0.24048096192384769, 0.30060120240480964, 0.36072144288577157, 0.42084168336673344, 0.48096192384769537, 0.5410821643286573, 0.6012024048096193, 0.6613226452905812, 0.7214428857715431, 0.781563126252505, 0.8416833667334669, 0.9018036072144289, 0.9619238476953907, 1.0220440881763526, 1.0821643286573146, 1.1422845691382766, 1.2024048096192386, 1.2625250501002003, 1.3226452905811623, 1.3827655310621243, 1.4428857715430863, 1.503006012024048, 1.56312625250501, 1.623246492985972, 1.6833667334669338, 1.7434869739478958, 1.8036072144288577, 1.8637274549098197, 1.9238476953907815, 1.9839679358717435, 2.0440881763527052, 2.1042084168336674, 2.164328657314629, 2.224448897795591, 2.284569138276553, 2.344689378757515, 2.404809619238477, 2.464929859719439, 2.5250501002004007, 2.585170340681363, 2.6452905811623246, 2.7054108216432864, 2.7655310621242486, 2.8256513026052104, 2.8857715430861726, 2.9458917835671343, 3.006012024048096, 3.0661322645290583, 3.12625250501002, 3.186372745490982, 3.246492985971944, 3.306613226452906, 3.3667334669338675, 3.4268537074148298, 3.4869739478957915, 3.5470941883767537, 3.6072144288577155, 3.6673346693386772, 3.7274549098196395, 3.787575150300601, 3.847695390781563, 3.907815631262525, 3.967935871743487, 4.028056112224449, 4.0881763527054105, 4.148296593186373, 4.208416833667335, 4.268537074148297, 4.328657314629258, 4.38877755511022, 4.448897795591182, 4.509018036072145, 4.569138276553106, 4.629258517034068, 4.68937875751503, 4.749498997995992, 4.809619238476954, 4.869739478957916, 4.929859719438878, 4.98997995991984, 5.050100200400801, 5.110220440881764, 5.170340681362726, 5.2304609218436875, 5.290581162324649, 5.350701402805611, 5.410821643286573, 5.470941883767535, 5.531062124248497, 5.591182364729459, 5.651302605210421, 5.7114228456913825, 5.771543086172345, 5.831663326653307, 5.891783567134269, 5.95190380761523, 6.012024048096192, 6.072144288577154, 6.132264529058117, 6.192384769539078, 6.25250501002004, 6.312625250501002, 6.372745490981964, 6.432865731462926, 6.492985971943888, 6.55310621242485, 6.613226452905812, 6.673346693386773, 6.733466933867735, 6.793587174348698, 6.8537074148296595, 6.913827655310621, 6.973947895791583, 7.034068136272545, 7.094188376753507, 7.154308617234469, 7.214428857715431, 7.274549098196393, 7.3346693386773545, 7.394789579158316, 7.454909819639279, 7.515030060120241, 7.575150300601202, 7.635270541082164, 7.695390781563126, 7.755511022044089, 7.81563126252505, 7.875751503006012, 7.935871743486974, 7.995991983967936, 8.056112224448897, 8.11623246492986, 8.176352705410821, 8.236472945891784, 8.296593186372746, 8.356713426853707, 8.41683366733467, 8.47695390781563, 8.537074148296593, 8.597194388777556, 8.657314629258517, 8.71743486973948, 8.77755511022044, 8.837675350701403, 8.897795591182364, 8.957915831663327, 9.01803607214429, 9.07815631262525, 9.138276553106213, 9.198396793587174, 9.258517034068136, 9.318637274549099, 9.37875751503006, 9.438877755511022, 9.498997995991983, 9.559118236472946, 9.619238476953909, 9.67935871743487, 9.739478957915832, 9.799599198396793, 9.859719438877756, 9.919839679358718, 9.97995991983968, 10.040080160320642, 10.100200400801603, 10.160320641282565, 10.220440881763528, 10.280561122244489, 10.340681362725451, 10.400801603206412, 10.460921843687375, 10.521042084168336, 10.581162324649299, 10.641282565130261, 10.701402805611222, 10.761523046092185, 10.821643286573146, 10.881763527054108, 10.94188376753507, 11.002004008016032, 11.062124248496994, 11.122244488977955, 11.182364729458918, 11.24248496993988, 11.302605210420841, 11.362725450901804, 11.422845691382765, 11.482965931863728, 11.54308617234469, 11.603206412825651, 11.663326653306614, 11.723446893787575, 11.783567134268537, 11.843687374749498, 11.90380761523046, 11.963927855711423, 12.024048096192384, 12.084168336673347, 12.144288577154308, 12.20440881763527, 12.264529058116233, 12.324649298597194, 12.384769539078157, 12.444889779559118, 12.50501002004008, 12.565130260521043, 12.625250501002004, 12.685370741482966, 12.745490981963927, 12.80561122244489, 12.865731462925853, 12.925851703406813, 12.985971943887776, 13.046092184368737, 13.1062124248497, 13.16633266533066, 13.226452905811623, 13.286573146292586, 13.346693386773547, 13.40681362725451, 13.46693386773547, 13.527054108216433, 13.587174348697395, 13.647294589178356, 13.707414829659319, 13.76753507014028, 13.827655310621243, 13.887775551102205, 13.947895791583166, 14.008016032064129, 14.06813627254509, 14.128256513026052, 14.188376753507015, 14.248496993987976, 14.308617234468938, 14.3687374749499, 14.428857715430862, 14.488977955911823, 14.549098196392785, 14.609218436873748, 14.669338677354709, 14.729458917835672, 14.789579158316633, 14.849699398797595, 14.909819639278558, 14.969939879759519, 15.030060120240481, 15.090180360721442, 15.150300601202405, 15.210420841683367, 15.270541082164328, 15.330661322645291, 15.390781563126252, 15.450901803607215, 15.511022044088177, 15.571142284569138, 15.6312625250501, 15.691382765531062, 15.751503006012024, 15.811623246492985, 15.871743486973948, 15.93186372745491, 15.991983967935871, 16.052104208416832, 16.112224448897795, 16.172344689378757, 16.23246492985972, 16.292585170340683, 16.352705410821642, 16.412825651302605, 16.472945891783567, 16.53306613226453, 16.593186372745492, 16.65330661322645, 16.713426853707414, 16.773547094188377, 16.83366733466934, 16.893787575150302, 16.95390781563126, 17.014028056112224, 17.074148296593187, 17.13426853707415, 17.194388777555112, 17.25450901803607, 17.314629258517034, 17.374749498997996, 17.43486973947896, 17.49498997995992, 17.55511022044088, 17.615230460921843, 17.675350701402806, 17.73547094188377, 17.795591182364728, 17.85571142284569, 17.915831663326653, 17.975951903807616, 18.03607214428858, 18.096192384769537, 18.1563126252505, 18.216432865731463, 18.276553106212425, 18.336673346693388, 18.396793587174347, 18.45691382765531, 18.517034068136272, 18.577154308617235, 18.637274549098198, 18.697394789579157, 18.75751503006012, 18.817635270541082, 18.877755511022045, 18.937875751503007, 18.997995991983966, 19.05811623246493, 19.118236472945892, 19.178356713426854, 19.238476953907817, 19.298597194388776, 19.35871743486974, 19.4188376753507, 19.478957915831664, 19.539078156312627, 19.599198396793586, 19.65931863727455, 19.71943887775551, 19.779559118236474, 19.839679358717436, 19.899799599198396, 19.95991983967936, 20.02004008016032, 20.080160320641284, 20.140280561122246, 20.200400801603205, 20.260521042084168, 20.32064128256513, 20.380761523046093, 20.440881763527056, 20.501002004008015, 20.561122244488978, 20.62124248496994, 20.681362725450903, 20.741482965931862, 20.801603206412825, 20.861723446893787, 20.92184368737475, 20.981963927855713, 21.04208416833667, 21.102204408817634, 21.162324649298597, 21.22244488977956, 21.282565130260522, 21.34268537074148, 21.402805611222444, 21.462925851703407, 21.52304609218437, 21.583166332665332, 21.64328657314629, 21.703406813627254, 21.763527054108216, 21.82364729458918, 21.88376753507014, 21.9438877755511, 22.004008016032063, 22.064128256513026, 22.12424849699399, 22.18436873747495, 22.24448897795591, 22.304609218436873, 22.364729458917836, 22.4248496993988, 22.48496993987976, 22.54509018036072, 22.605210420841683, 22.665330661322646, 22.725450901803608, 22.78557114228457, 22.84569138276553, 22.905811623246493, 22.965931863727455, 23.026052104208418, 23.08617234468938, 23.14629258517034, 23.206412825651302, 23.266533066132265, 23.326653306613228, 23.386773547094187, 23.44689378757515, 23.507014028056112, 23.567134268537075, 23.627254509018037, 23.687374749498996, 23.74749498997996, 23.80761523046092, 23.867735470941884, 23.927855711422847, 23.987975951903806, 24.04809619238477, 24.10821643286573, 24.168336673346694, 24.228456913827657, 24.288577154308616, 24.34869739478958, 24.40881763527054, 24.468937875751504, 24.529058116232466, 24.589178356713425, 24.649298597194388, 24.70941883767535, 24.769539078156313, 24.829659318637276, 24.889779559118235, 24.949899799599198, 25.01002004008016, 25.070140280561123, 25.130260521042086, 25.190380761523045, 25.250501002004007, 25.31062124248497, 25.370741482965933, 25.430861723446895, 25.490981963927855, 25.551102204408817, 25.61122244488978, 25.671342685370742, 25.731462925851705, 25.791583166332664, 25.851703406813627, 25.91182364729459, 25.971943887775552, 26.03206412825651, 26.092184368737474, 26.152304609218437, 26.2124248496994, 26.272545090180362, 26.33266533066132, 26.392785571142284, 26.452905811623246, 26.51302605210421, 26.57314629258517, 26.63326653306613, 26.693386773547093, 26.753507014028056, 26.81362725450902, 26.87374749498998, 26.93386773547094, 26.993987975951903, 27.054108216432866, 27.11422845691383, 27.17434869739479, 27.23446893787575, 27.294589178356713, 27.354709418837675, 27.414829659318638, 27.4749498997996, 27.53507014028056, 27.595190380761522, 27.655310621242485, 27.715430861723448, 27.77555110220441, 27.83567134268537, 27.895791583166332, 27.955911823647295, 28.016032064128257, 28.07615230460922, 28.13627254509018, 28.196392785571142, 28.256513026052104, 28.316633266533067, 28.37675350701403, 28.43687374749499, 28.49699398797595, 28.557114228456914, 28.617234468937877, 28.677354709418836, 28.7374749498998, 28.79759519038076, 28.857715430861724, 28.917835671342687, 28.977955911823646, 29.03807615230461, 29.09819639278557, 29.158316633266534, 29.218436873747496, 29.278557114228455, 29.338677354709418, 29.39879759519038, 29.458917835671343, 29.519038076152306, 29.579158316633265, 29.639278557114228, 29.69939879759519, 29.759519038076153, 29.819639278557116, 29.879759519038075, 29.939879759519037, 30.0])
+              .range(['#0000ffff', '#0001fcff', '#0003f9ff', '#0004f6ff', '#0006f3ff', '#0007f0ff', '#0009edff', '#000aeaff', '#000ce7ff', '#000de4ff', '#000fe1ff', '#0010deff', '#0012dbff', '#0014d7ff', '#0015d4ff', '#0017d1ff', '#0018ceff', '#001acbff', '#001bc8ff', '#001dc5ff', '#001ec2ff', '#0020bfff', '#0021bcff', '#0023b9ff', '#0025b6ff', '#0026b3ff', '#0028afff', '#0029acff', '#002ba9ff', '#002ca6ff', '#002ea3ff', '#002fa0ff', '#00319dff', '#00329aff', '#003497ff', '#003694ff', '#003791ff', '#00398eff', '#003a8bff', '#003c87ff', '#003d84ff', '#003f81ff', '#00407eff', '#00427bff', '#004378ff', '#004575ff', '#004772ff', '#00486fff', '#004a6cff', '#004b69ff', '#004d66ff', '#004e63ff', '#00505fff', '#00515cff', '#005359ff', '#005456ff', '#005653ff', '#005850ff', '#00594dff', '#005b4aff', '#005c47ff', '#005e44ff', '#005f41ff', '#00613eff', '#00623aff', '#006437ff', '#006534ff', '#006731ff', '#00692eff', '#006a2bff', '#006c28ff', '#006d25ff', '#006f22ff', '#00701fff', '#00721cff', '#007319ff', '#007516ff', '#007612ff', '#00780fff', '#007a0cff', '#007b09ff', '#007d06ff', '#007e03ff', '#008000ff', '#028100ff', '#058300ff', '#088400ff', '#0b8600ff', '#0e8700ff', '#118900ff', '#158a00ff', '#188c00ff', '#1b8e00ff', '#1e8f00ff', '#219100ff', '#249200ff', '#279400ff', '#2a9500ff', '#2d9700ff', '#309800ff', '#339a00ff', '#369b00ff', '#399d00ff', '#3d9e00ff', '#40a000ff', '#43a100ff', '#46a300ff', '#49a500ff', '#4ca600ff', '#4fa800ff', '#52a900ff', '#55ab00ff', '#58ac00ff', '#5bae00ff', '#5eaf00ff', '#61b100ff', '#65b200ff', '#68b400ff', '#6bb500ff', '#6eb700ff', '#71b800ff', '#74ba00ff', '#77bc00ff', '#7abd00ff', '#7dbf00ff', '#80c000ff', '#83c200ff', '#86c300ff', '#8ac500ff', '#8dc600ff', '#90c800ff', '#93c900ff', '#96cb00ff', '#99cc00ff', '#9cce00ff', '#9fcf00ff', '#a2d100ff', '#a5d300ff', '#a8d400ff', '#abd600ff', '#aed700ff', '#b2d900ff', '#b5da00ff', '#b8dc00ff', '#bbdd00ff', '#bedf00ff', '#c1e000ff', '#c4e200ff', '#c7e300ff', '#cae500ff', '#cde600ff', '#d0e800ff', '#d3ea00ff', '#d6eb00ff', '#daed00ff', '#ddee00ff', '#e0f000ff', '#e3f100ff', '#e6f300ff', '#e9f400ff', '#ecf600ff', '#eff700ff', '#f2f900ff', '#f5fa00ff', '#f8fc00ff', '#fbfd00ff', '#feff00ff', '#ffff00ff', '#fffe00ff', '#fffd00ff', '#fffc00ff', '#fffa00ff', '#fff900ff', '#fff800ff', '#fff700ff', '#fff600ff', '#fff500ff', '#fff400ff', '#fff300ff', '#fff200ff', '#fff100ff', '#fff000ff', '#ffee00ff', '#ffed00ff', '#ffec00ff', '#ffeb00ff', '#ffea00ff', '#ffe900ff', '#ffe800ff', '#ffe700ff', '#ffe600ff', '#ffe500ff', '#ffe400ff', '#ffe300ff', '#ffe100ff', '#ffe000ff', '#ffdf00ff', '#ffde00ff', '#ffdd00ff', '#ffdc00ff', '#ffdb00ff', '#ffda00ff', '#ffd900ff', '#ffd800ff', '#ffd700ff', '#ffd500ff', '#ffd400ff', '#ffd300ff', '#ffd200ff', '#ffd100ff', '#ffd000ff', '#ffcf00ff', '#ffce00ff', '#ffcd00ff', '#ffcc00ff', '#ffcb00ff', '#ffca00ff', '#ffc800ff', '#ffc700ff', '#ffc600ff', '#ffc500ff', '#ffc400ff', '#ffc300ff', '#ffc200ff', '#ffc100ff', '#ffc000ff', '#ffbf00ff', '#ffbe00ff', '#ffbd00ff', '#ffbb00ff', '#ffba00ff', '#ffb900ff', '#ffb800ff', '#ffb700ff', '#ffb600ff', '#ffb500ff', '#ffb400ff', '#ffb300ff', '#ffb200ff', '#ffb100ff', '#ffaf00ff', '#ffae00ff', '#ffad00ff', '#ffac00ff', '#ffab00ff', '#ffaa00ff', '#ffa900ff', '#ffa800ff', '#ffa700ff', '#ffa600ff', '#ffa400ff', '#ffa200ff', '#ffa000ff', '#ff9e00ff', '#ff9c00ff', '#ff9a00ff', '#ff9800ff', '#ff9600ff', '#ff9400ff', '#ff9200ff', '#ff9000ff', '#ff8e00ff', '#ff8c00ff', '#ff8a00ff', '#ff8800ff', '#ff8600ff', '#ff8400ff', '#ff8200ff', '#ff8000ff', '#ff7e00ff', '#ff7c00ff', '#ff7a00ff', '#ff7800ff', '#ff7600ff', '#ff7400ff', '#ff7200ff', '#ff7000ff', '#ff6e00ff', '#ff6c00ff', '#ff6a00ff', '#ff6800ff', '#ff6600ff', '#ff6400ff', '#ff6200ff', '#ff6000ff', '#ff5e00ff', '#ff5c00ff', '#ff5a00ff', '#ff5800ff', '#ff5600ff', '#ff5400ff', '#ff5200ff', '#ff5000ff', '#ff4f00ff', '#ff4d00ff', '#ff4b00ff', '#ff4900ff', '#ff4700ff', '#ff4500ff', '#ff4300ff', '#ff4100ff', '#ff3f00ff', '#ff3d00ff', '#ff3b00ff', '#ff3900ff', '#ff3700ff', '#ff3500ff', '#ff3300ff', '#ff3100ff', '#ff2f00ff', '#ff2d00ff', '#ff2b00ff', '#ff2900ff', '#ff2700ff', '#ff2500ff', '#ff2300ff', '#ff2100ff', '#ff1f00ff', '#ff1d00ff', '#ff1b00ff', '#ff1900ff', '#ff1700ff', '#ff1500ff', '#ff1300ff', '#ff1100ff', '#ff0f00ff', '#ff0d00ff', '#ff0b00ff', '#ff0900ff', '#ff0700ff', '#ff0500ff', '#ff0300ff', '#ff0100ff', '#ff0000ff', '#fe0000ff', '#fc0000ff', '#fb0000ff', '#f90000ff', '#f80000ff', '#f70000ff', '#f50000ff', '#f40000ff', '#f20000ff', '#f10000ff', '#f00000ff', '#ee0000ff', '#ed0000ff', '#eb0000ff', '#ea0000ff', '#e90000ff', '#e70000ff', '#e60000ff', '#e40000ff', '#e30000ff', '#e20000ff', '#e00000ff', '#df0000ff', '#dd0000ff', '#dc0000ff', '#db0000ff', '#d90000ff', '#d80000ff', '#d60000ff', '#d50000ff', '#d40000ff', '#d20000ff', '#d10000ff', '#cf0000ff', '#ce0000ff', '#cd0000ff', '#cb0000ff', '#ca0000ff', '#c80000ff', '#c70000ff', '#c60000ff', '#c40000ff', '#c30000ff', '#c10000ff', '#c00000ff', '#bf0000ff', '#bd0000ff', '#bc0000ff', '#ba0000ff', '#b90000ff', '#b80000ff', '#b60000ff', '#b50000ff', '#b30000ff', '#b20000ff', '#b10000ff', '#af0000ff', '#ae0000ff', '#ac0000ff', '#ab0000ff', '#aa0000ff', '#a80000ff', '#a70000ff', '#a50000ff', '#a40000ff', '#a30000ff', '#a10000ff', '#a00000ff', '#9e0000ff', '#9d0000ff', '#9c0000ff', '#9a0000ff', '#990000ff', '#970000ff', '#960000ff', '#950000ff', '#930000ff', '#920000ff', '#900000ff', '#8f0000ff', '#8e0000ff', '#8c0000ff', '#8b0000ff', '#8b0001ff', '#8b0003ff', '#8b0004ff', '#8a0006ff', '#8a0007ff', '#8a0009ff', '#8a000bff', '#8a000cff', '#8a000eff', '#8a000fff', '#8a0011ff', '#890012ff', '#890014ff', '#890015ff', '#890017ff', '#890018ff', '#89001aff', '#89001cff', '#89001dff', '#88001fff', '#880020ff', '#880022ff', '#880023ff', '#880025ff', '#880026ff', '#880028ff', '#870029ff', '#87002bff', '#87002dff', '#87002eff', '#870030ff', '#870031ff', '#870033ff', '#870034ff', '#860036ff', '#860037ff', '#860039ff', '#86003aff', '#86003cff', '#86003eff', '#86003fff', '#850041ff', '#850042ff', '#850044ff', '#850045ff', '#850047ff', '#850048ff', '#85004aff', '#85004bff', '#84004dff', '#84004fff', '#840050ff', '#840052ff', '#840053ff', '#840055ff', '#840056ff', '#830058ff', '#830059ff', '#83005bff', '#83005cff', '#83005eff', '#830060ff', '#830061ff', '#830063ff', '#820064ff', '#820066ff', '#820067ff', '#820069ff', '#82006aff', '#82006cff', '#82006dff', '#81006fff', '#810071ff', '#810072ff', '#810074ff', '#810075ff', '#810077ff', '#810078ff', '#81007aff', '#80007bff', '#80007dff', '#80007eff', '#800080ff']);
+    
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.x = d3.scale.linear()
+              .domain([0.0, 30.0])
+              .range([0, 450 - 50]);
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.legend = L.control({position: 'topright'});
+    color_map_ea722fb3f15537fd9453a86306a9d04d.legend.onAdd = function (map) {var div = L.DomUtil.create('div', 'legend'); return div};
+    color_map_ea722fb3f15537fd9453a86306a9d04d.legend.addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.xAxis = d3.svg.axis()
+        .scale(color_map_ea722fb3f15537fd9453a86306a9d04d.x)
+        .orient("top")
+        .tickSize(1)
+        .tickValues([0.0, 5.0, 10.0, 15.0, 20.0, 25.0, 30.0]);
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.svg = d3.select(".legend.leaflet-control").append("svg")
+        .attr("id", 'legend')
+        .attr("width", 450)
+        .attr("height", 40);
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.g = color_map_ea722fb3f15537fd9453a86306a9d04d.svg.append("g")
+        .attr("class", "key")
+        .attr("transform", "translate(25,16)");
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.g.selectAll("rect")
+        .data(color_map_ea722fb3f15537fd9453a86306a9d04d.color.range().map(function(d, i) {
+          return {
+            x0: i ? color_map_ea722fb3f15537fd9453a86306a9d04d.x(color_map_ea722fb3f15537fd9453a86306a9d04d.color.domain()[i - 1]) : color_map_ea722fb3f15537fd9453a86306a9d04d.x.range()[0],
+            x1: i < color_map_ea722fb3f15537fd9453a86306a9d04d.color.domain().length ? color_map_ea722fb3f15537fd9453a86306a9d04d.x(color_map_ea722fb3f15537fd9453a86306a9d04d.color.domain()[i]) : color_map_ea722fb3f15537fd9453a86306a9d04d.x.range()[1],
+            z: d
+          };
+        }))
+      .enter().append("rect")
+        .attr("height", 40 - 30)
+        .attr("x", function(d) { return d.x0; })
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .style("fill", function(d) { return d.z; });
+
+    color_map_ea722fb3f15537fd9453a86306a9d04d.g.call(color_map_ea722fb3f15537fd9453a86306a9d04d.xAxis).append("text")
+        .attr("class", "caption")
+        .attr("y", 21)
+        .text("PM2.5 \u03bcg/m\u00b3");
+    
+            var circle_marker_120b5f83234d59994616f1ceefdb75dd = L.circleMarker(
+                [25.129167, 121.760056],
+                {"bubblingMouseEvents": true, "color": "#890019ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#890019ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_d8957874f0913de84da9bb2b47f41c8d = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_cff44d5ec89342ce00f48db4dc5dfaed = $(`<div id="html_cff44d5ec89342ce00f48db4dc5dfaed" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 26.0 μg/m³</strong><br>測站名: 基隆<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_d8957874f0913de84da9bb2b47f41c8d.setContent(html_cff44d5ec89342ce00f48db4dc5dfaed);
+            
+        
+
+        circle_marker_120b5f83234d59994616f1ceefdb75dd.bindPopup(popup_d8957874f0913de84da9bb2b47f41c8d)
+        ;
+
+        
+    
+    
+            var circle_marker_8f4ae69f46fe770bd5741b5d5af93927 = L.circleMarker(
+                [25.10334003, 121.51666356],
+                {"bubblingMouseEvents": true, "color": "#a20000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a20000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_76fb4380ca6815361198f64f075a19a7 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_a3f6c4eee0f2189edc26bd215857014f = $(`<div id="html_a3f6c4eee0f2189edc26bd215857014f" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 24.0 μg/m³</strong><br>測站名: 士林<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_76fb4380ca6815361198f64f075a19a7.setContent(html_a3f6c4eee0f2189edc26bd215857014f);
+            
+        
+
+        circle_marker_8f4ae69f46fe770bd5741b5d5af93927.bindPopup(popup_76fb4380ca6815361198f64f075a19a7)
+        ;
+
+        
+    
+    
+            var circle_marker_3bc17c412bff458a399862983c7e2a8b = L.circleMarker(
+                [25.06331455, 121.51342074],
+                {"bubblingMouseEvents": true, "color": "#820066ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#820066ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_12e72170c2251fd1546a10a4bfeb452a = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_ecd22d3ecb190d4a24da6b6534a3aee5 = $(`<div id="html_ecd22d3ecb190d4a24da6b6534a3aee5" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 29.0 μg/m³</strong><br>測站名: 大同<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_12e72170c2251fd1546a10a4bfeb452a.setContent(html_ecd22d3ecb190d4a24da6b6534a3aee5);
+            
+        
+
+        circle_marker_3bc17c412bff458a399862983c7e2a8b.bindPopup(popup_12e72170c2251fd1546a10a4bfeb452a)
+        ;
+
+        
+    
+    
+            var circle_marker_62f5231be1b2fb2d5626651e6a3bccd2 = L.circleMarker(
+                [25.062361, 121.526528],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_bdebe6d722a37f8adf99573c343bbb12 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_52569a079cef4b28b0f8ac4143237079 = $(`<div id="html_52569a079cef4b28b0f8ac4143237079" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 32.0 μg/m³</strong><br>測站名: 中山<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_bdebe6d722a37f8adf99573c343bbb12.setContent(html_52569a079cef4b28b0f8ac4143237079);
+            
+        
+
+        circle_marker_62f5231be1b2fb2d5626651e6a3bccd2.bindPopup(popup_bdebe6d722a37f8adf99573c343bbb12)
+        ;
+
+        
+    
+    
+            var circle_marker_354f4447e09a166cd8e6638c55c892ca = L.circleMarker(
+                [25.020608, 121.529556],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_7775ebde5d50aa197c02c66ab9b05370 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_a248ac51e372eaa644c1f5c6fedadbfc = $(`<div id="html_a248ac51e372eaa644c1f5c6fedadbfc" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 30.0 μg/m³</strong><br>測站名: 古亭<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_7775ebde5d50aa197c02c66ab9b05370.setContent(html_a248ac51e372eaa644c1f5c6fedadbfc);
+            
+        
+
+        circle_marker_354f4447e09a166cd8e6638c55c892ca.bindPopup(popup_7775ebde5d50aa197c02c66ab9b05370)
+        ;
+
+        
+    
+    
+            var circle_marker_2fcfc2caf693d4eb6679a9967efc3e55 = L.circleMarker(
+                [25.05, 121.578611],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_cfd7a08695393153c7accae919a8b019 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_8587c66cb7d46d51fcdc23cb41738fbe = $(`<div id="html_8587c66cb7d46d51fcdc23cb41738fbe" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 30.0 μg/m³</strong><br>測站名: 松山<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_cfd7a08695393153c7accae919a8b019.setContent(html_8587c66cb7d46d51fcdc23cb41738fbe);
+            
+        
+
+        circle_marker_2fcfc2caf693d4eb6679a9967efc3e55.bindPopup(popup_cfd7a08695393153c7accae919a8b019)
+        ;
+
+        
+    
+    
+            var circle_marker_1fa418893d79f907f38f54513b7134b6 = L.circleMarker(
+                [25.182722, 121.529583],
+                {"bubblingMouseEvents": true, "color": "#ffed00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffed00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_2fa65ca9d04508360cdbb195544c10e1 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_3e394676d7b9c0d8929b84571ba0d6dd = $(`<div id="html_3e394676d7b9c0d8929b84571ba0d6dd" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 11.0 μg/m³</strong><br>測站名: 陽明<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_2fa65ca9d04508360cdbb195544c10e1.setContent(html_3e394676d7b9c0d8929b84571ba0d6dd);
+            
+        
+
+        circle_marker_1fa418893d79f907f38f54513b7134b6.bindPopup(popup_2fa65ca9d04508360cdbb195544c10e1)
+        ;
+
+        
+    
+    
+            var circle_marker_d0d76092137a956737bdfc45c0b449de = L.circleMarker(
+                [25.046503, 121.507972],
+                {"bubblingMouseEvents": true, "color": "#890019ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#890019ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c0628df02c8fede35e7509e1e0ac2612 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_e010d8d2562d5dcd8a4bd21e90544610 = $(`<div id="html_e010d8d2562d5dcd8a4bd21e90544610" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 26.0 μg/m³</strong><br>測站名: 萬華<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c0628df02c8fede35e7509e1e0ac2612.setContent(html_e010d8d2562d5dcd8a4bd21e90544610);
+            
+        
+
+        circle_marker_d0d76092137a956737bdfc45c0b449de.bindPopup(popup_c0628df02c8fede35e7509e1e0ac2612)
+        ;
+
+        
+    
+    
+            var circle_marker_e3994020b1d73f3964df5c8c4df57dd3 = L.circleMarker(
+                [25.072611, 121.493806],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c0d8d6e7b74d656fcc07673b1470c083 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_e6552be2dbc1e6e922c152ecf7950803 = $(`<div id="html_e6552be2dbc1e6e922c152ecf7950803" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 31.0 μg/m³</strong><br>測站名: 三重<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c0d8d6e7b74d656fcc07673b1470c083.setContent(html_e6552be2dbc1e6e922c152ecf7950803);
+            
+        
+
+        circle_marker_e3994020b1d73f3964df5c8c4df57dd3.bindPopup(popup_c0d8d6e7b74d656fcc07673b1470c083)
+        ;
+
+        
+    
+    
+            var circle_marker_47736e9489874e8ed216cd0f3fa8fe6e = L.circleMarker(
+                [24.982528, 121.451861],
+                {"bubblingMouseEvents": true, "color": "#a20000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a20000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_6453c40ec662774fbe8880233bbb6da6 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_8328cb68e09a5e37c9267593c6c87de3 = $(`<div id="html_8328cb68e09a5e37c9267593c6c87de3" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 24.0 μg/m³</strong><br>測站名: 土城<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_6453c40ec662774fbe8880233bbb6da6.setContent(html_8328cb68e09a5e37c9267593c6c87de3);
+            
+        
+
+        circle_marker_47736e9489874e8ed216cd0f3fa8fe6e.bindPopup(popup_6453c40ec662774fbe8880233bbb6da6)
+        ;
+
+        
+    
+    
+            var circle_marker_6550e0bd214540ab78a9595ea01ef9b4 = L.circleMarker(
+                [25.017, 121.516306],
+                {"bubblingMouseEvents": true, "color": "#820066ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#820066ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c0701d26afb45f117efced24ab85e5f7 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_a1ab7c0c3fd8468d5c9f9769032e9af3 = $(`<div id="html_a1ab7c0c3fd8468d5c9f9769032e9af3" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 29.0 μg/m³</strong><br>測站名: 永和<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c0701d26afb45f117efced24ab85e5f7.setContent(html_a1ab7c0c3fd8468d5c9f9769032e9af3);
+            
+        
+
+        circle_marker_6550e0bd214540ab78a9595ea01ef9b4.bindPopup(popup_c0701d26afb45f117efced24ab85e5f7)
+        ;
+
+        
+    
+    
+            var circle_marker_68243374c86b47392b1160adc0519bec = L.circleMarker(
+                [25.06624, 121.64081],
+                {"bubblingMouseEvents": true, "color": "#870033ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#870033ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_61e894ee3c2ec65e8e057ea834f8a51f = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_ececa295a1f681a72ff5390acb330b4d = $(`<div id="html_ececa295a1f681a72ff5390acb330b4d" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 27.0 μg/m³</strong><br>測站名: 汐止<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_61e894ee3c2ec65e8e057ea834f8a51f.setContent(html_ececa295a1f681a72ff5390acb330b4d);
+            
+        
+
+        circle_marker_68243374c86b47392b1160adc0519bec.bindPopup(popup_61e894ee3c2ec65e8e057ea834f8a51f)
+        ;
+
+        
+    
+    
+            var circle_marker_90aa93f26b20ebf877c386f8d1c6baec = L.circleMarker(
+                [25.012972, 121.458667],
+                {"bubblingMouseEvents": true, "color": "#8b0000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#8b0000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_f4464ef484951fc9d6ee548573dc19b0 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_c1ed2a47fbdb3081d9762637fd347f2e = $(`<div id="html_c1ed2a47fbdb3081d9762637fd347f2e" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 25.0 μg/m³</strong><br>測站名: 板橋<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_f4464ef484951fc9d6ee548573dc19b0.setContent(html_c1ed2a47fbdb3081d9762637fd347f2e);
+            
+        
+
+        circle_marker_90aa93f26b20ebf877c386f8d1c6baec.bindPopup(popup_f4464ef484951fc9d6ee548573dc19b0)
+        ;
+
+        
+    
+    
+            var circle_marker_3e9aab2cc30b9a8a800ca5f43a92e596 = L.circleMarker(
+                [25.07798949, 121.36548982],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_3e77871fc30d046f8d8fb1e9cc3f819f = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_31340704b7a7d8ef0c8a6f49d2c2d6eb = $(`<div id="html_31340704b7a7d8ef0c8a6f49d2c2d6eb" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 30.0 μg/m³</strong><br>測站名: 林口<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_3e77871fc30d046f8d8fb1e9cc3f819f.setContent(html_31340704b7a7d8ef0c8a6f49d2c2d6eb);
+            
+        
+
+        circle_marker_3e9aab2cc30b9a8a800ca5f43a92e596.bindPopup(popup_3e77871fc30d046f8d8fb1e9cc3f819f)
+        ;
+
+        
+    
+    
+            var circle_marker_14c17d945ab5c69ade94c68684089e49 = L.circleMarker(
+                [25.1645, 121.449239],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_02cd18e6fe7cb000cbe0abf5d3b3a9e6 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_5c8aba3bcdf72c861a62edc02a846b23 = $(`<div id="html_5c8aba3bcdf72c861a62edc02a846b23" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 33.0 μg/m³</strong><br>測站名: 淡水<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_02cd18e6fe7cb000cbe0abf5d3b3a9e6.setContent(html_5c8aba3bcdf72c861a62edc02a846b23);
+            
+        
+
+        circle_marker_14c17d945ab5c69ade94c68684089e49.bindPopup(popup_02cd18e6fe7cb000cbe0abf5d3b3a9e6)
+        ;
+
+        
+    
+    
+            var circle_marker_3ca564e8f5026c7918615240e5f38f04 = L.circleMarker(
+                [25.06895, 121.481028],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_8e6dc7e521ce69dfe9544dfc3ac53eba = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_356410ddf8a15f872965400dc2a4dfec = $(`<div id="html_356410ddf8a15f872965400dc2a4dfec" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 33.0 μg/m³</strong><br>測站名: 菜寮<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_8e6dc7e521ce69dfe9544dfc3ac53eba.setContent(html_356410ddf8a15f872965400dc2a4dfec);
+            
+        
+
+        circle_marker_3ca564e8f5026c7918615240e5f38f04.bindPopup(popup_8e6dc7e521ce69dfe9544dfc3ac53eba)
+        ;
+
+        
+    
+    
+            var circle_marker_67ac045d6552e93d65a496db6af99012 = L.circleMarker(
+                [24.977222, 121.537778],
+                {"bubblingMouseEvents": true, "color": "#84004dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#84004dff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_87ea8569b9f3640f61e9e04567746c91 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_fd103bf24a736eff70df61a2d1b41dac = $(`<div id="html_fd103bf24a736eff70df61a2d1b41dac" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 28.0 μg/m³</strong><br>測站名: 新店<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_87ea8569b9f3640f61e9e04567746c91.setContent(html_fd103bf24a736eff70df61a2d1b41dac);
+            
+        
+
+        circle_marker_67ac045d6552e93d65a496db6af99012.bindPopup(popup_87ea8569b9f3640f61e9e04567746c91)
+        ;
+
+        
+    
+    
+            var circle_marker_32085f22c92e7e1bfc57084439d67c4d = L.circleMarker(
+                [25.037972, 121.4325],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_f1f81e68d50e879f2ca1be05d1ff32ff = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_3187c87f114fd9b0aba42fa2296b9b74 = $(`<div id="html_3187c87f114fd9b0aba42fa2296b9b74" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 31.0 μg/m³</strong><br>測站名: 新莊<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_f1f81e68d50e879f2ca1be05d1ff32ff.setContent(html_3187c87f114fd9b0aba42fa2296b9b74);
+            
+        
+
+        circle_marker_32085f22c92e7e1bfc57084439d67c4d.bindPopup(popup_f1f81e68d50e879f2ca1be05d1ff32ff)
+        ;
+
+        
+    
+    
+            var circle_marker_c8c916c2bd7b3384a32832ce7b4e956e = L.circleMarker(
+                [25.179667, 121.689881],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_60630750501dd779cf219ec6a462f5b7 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_c601e4a9021e05c047c20be44986810d = $(`<div id="html_c601e4a9021e05c047c20be44986810d" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 31.0 μg/m³</strong><br>測站名: 萬里<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_60630750501dd779cf219ec6a462f5b7.setContent(html_c601e4a9021e05c047c20be44986810d);
+            
+        
+
+        circle_marker_c8c916c2bd7b3384a32832ce7b4e956e.bindPopup(popup_60630750501dd779cf219ec6a462f5b7)
+        ;
+
+        
+    
+    
+            var circle_marker_c2266ed4b4f5b74959b67f6f51a8aacf = L.circleMarker(
+                [25.29681695, 121.53656894],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_99ada36868a2a235b6fb802255aaac9a = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_067acc6b2896b95bcb7c74ee25166dc3 = $(`<div id="html_067acc6b2896b95bcb7c74ee25166dc3" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 30.0 μg/m³</strong><br>測站名: 富貴角<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_99ada36868a2a235b6fb802255aaac9a.setContent(html_067acc6b2896b95bcb7c74ee25166dc3);
+            
+        
+
+        circle_marker_c2266ed4b4f5b74959b67f6f51a8aacf.bindPopup(popup_99ada36868a2a235b6fb802255aaac9a)
+        ;
+
+        
+    
+    
+            var circle_marker_62679655069e1686c2360e92f6db2469 = L.circleMarker(
+                [25.06100357, 121.20251473],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_81893dc8e0f1b23b983f5232f61dfc85 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_321cd1ae1f1012757bb45d73c575217f = $(`<div id="html_321cd1ae1f1012757bb45d73c575217f" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 30.0 μg/m³</strong><br>測站名: 大園<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_81893dc8e0f1b23b983f5232f61dfc85.setContent(html_321cd1ae1f1012757bb45d73c575217f);
+            
+        
+
+        circle_marker_62679655069e1686c2360e92f6db2469.bindPopup(popup_81893dc8e0f1b23b983f5232f61dfc85)
+        ;
+
+        
+    
+    
+            var circle_marker_a195dab50f5b252a78497ddc2b1a3641 = L.circleMarker(
+                [24.953278, 121.221667],
+                {"bubblingMouseEvents": true, "color": "#84004dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#84004dff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_f42e5ee5cf082abd2599fff2e977d82c = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_3aa601819541aec858b51769f679436e = $(`<div id="html_3aa601819541aec858b51769f679436e" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 28.0 μg/m³</strong><br>測站名: 中壢<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_f42e5ee5cf082abd2599fff2e977d82c.setContent(html_3aa601819541aec858b51769f679436e);
+            
+        
+
+        circle_marker_a195dab50f5b252a78497ddc2b1a3641.bindPopup(popup_f42e5ee5cf082abd2599fff2e977d82c)
+        ;
+
+        
+    
+    
+            var circle_marker_6527bba687cf985d4558cd6e4e9b5000 = L.circleMarker(
+                [24.952786, 121.203986],
+                {"bubblingMouseEvents": true, "color": "#808080", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#808080", "fillOpacity": 0.25, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_d97cb856bc028b881e1875a7eaa04bcb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_730bff2454becd4cbdd25e3bcafb3134 = $(`<div id="html_730bff2454becd4cbdd25e3bcafb3134" style="width: 100.0%; height: 100.0%;">測站名: 平鎮<br>No Data</div>`)[0];
+                popup_d97cb856bc028b881e1875a7eaa04bcb.setContent(html_730bff2454becd4cbdd25e3bcafb3134);
+            
+        
+
+        circle_marker_6527bba687cf985d4558cd6e4e9b5000.bindPopup(popup_d97cb856bc028b881e1875a7eaa04bcb)
+        ;
+
+        
+    
+    
+            var circle_marker_fee99ab729bc53dcb479bd96f10739d3 = L.circleMarker(
+                [24.9947107, 121.30500531],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_67f5b2e081480fb1cb36123fe8d11d95 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_012a811ad4d5b868910c8fc7c1987237 = $(`<div id="html_012a811ad4d5b868910c8fc7c1987237" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 31.0 μg/m³</strong><br>測站名: 桃園<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_67f5b2e081480fb1cb36123fe8d11d95.setContent(html_012a811ad4d5b868910c8fc7c1987237);
+            
+        
+
+        circle_marker_fee99ab729bc53dcb479bd96f10739d3.bindPopup(popup_67f5b2e081480fb1cb36123fe8d11d95)
+        ;
+
+        
+    
+    
+            var circle_marker_15e2e7d85d3066c86f2d534886015bba = L.circleMarker(
+                [24.86400048, 121.21645772],
+                {"bubblingMouseEvents": true, "color": "#84004dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#84004dff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_bab195435bc8c1e2fff912f637b7ee18 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_884ce922738b64567379518322fed099 = $(`<div id="html_884ce922738b64567379518322fed099" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 28.0 μg/m³</strong><br>測站名: 龍潭<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_bab195435bc8c1e2fff912f637b7ee18.setContent(html_884ce922738b64567379518322fed099);
+            
+        
+
+        circle_marker_15e2e7d85d3066c86f2d534886015bba.bindPopup(popup_bab195435bc8c1e2fff912f637b7ee18)
+        ;
+
+        
+    
+    
+            var circle_marker_c77bd7f5c66783d0381cf0f4a4a34ac8 = L.circleMarker(
+                [25.03556747, 121.08283092],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_2f4054adf02b5e586898b9a21e3d3776 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_4696d5bca7f0d94418e797cf8c7e9b00 = $(`<div id="html_4696d5bca7f0d94418e797cf8c7e9b00" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 34.0 μg/m³</strong><br>測站名: 觀音<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_2f4054adf02b5e586898b9a21e3d3776.setContent(html_4696d5bca7f0d94418e797cf8c7e9b00);
+            
+        
+
+        circle_marker_c77bd7f5c66783d0381cf0f4a4a34ac8.bindPopup(popup_2f4054adf02b5e586898b9a21e3d3776)
+        ;
+
+        
+    
+    
+            var circle_marker_5b2368749c808232e736b88413a51787 = L.circleMarker(
+                [24.8056356, 120.97236752],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_914d7925c2f19137caeedbfdaf50579f = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_8d15f8756716b8335b24ee6661584edf = $(`<div id="html_8d15f8756716b8335b24ee6661584edf" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 30.0 μg/m³</strong><br>測站名: 新竹<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_914d7925c2f19137caeedbfdaf50579f.setContent(html_8d15f8756716b8335b24ee6661584edf);
+            
+        
+
+        circle_marker_5b2368749c808232e736b88413a51787.bindPopup(popup_914d7925c2f19137caeedbfdaf50579f)
+        ;
+
+        
+    
+    
+            var circle_marker_37c945bf7ca7a6db2b26f2db71bd0728 = L.circleMarker(
+                [24.74091408, 121.08895493],
+                {"bubblingMouseEvents": true, "color": "#ba0000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ba0000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_d91835f3714b66c21699e8dd6eeec00b = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_31102d3d1501160019169c413e8a7382 = $(`<div id="html_31102d3d1501160019169c413e8a7382" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 23.0 μg/m³</strong><br>測站名: 竹東<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_d91835f3714b66c21699e8dd6eeec00b.setContent(html_31102d3d1501160019169c413e8a7382);
+            
+        
+
+        circle_marker_37c945bf7ca7a6db2b26f2db71bd0728.bindPopup(popup_d91835f3714b66c21699e8dd6eeec00b)
+        ;
+
+        
+    
+    
+            var circle_marker_9d6f392a8cda5320a8ed30daed562163 = L.circleMarker(
+                [24.90009696, 121.03886894],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c6b4b041dc9560d6d06fdbddd4c730f5 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_772f3303afc850ffec8d3c77fe8f11f4 = $(`<div id="html_772f3303afc850ffec8d3c77fe8f11f4" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 37.0 μg/m³</strong><br>測站名: 湖口<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c6b4b041dc9560d6d06fdbddd4c730f5.setContent(html_772f3303afc850ffec8d3c77fe8f11f4);
+            
+        
+
+        circle_marker_9d6f392a8cda5320a8ed30daed562163.bindPopup(popup_c6b4b041dc9560d6d06fdbddd4c730f5)
+        ;
+
+        
+    
+    
+            var circle_marker_f05075231b0679ea9ba29772178509d4 = L.circleMarker(
+                [24.38248443, 120.75956754],
+                {"bubblingMouseEvents": true, "color": "#e80000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e80000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c5db60597b9a0fc6a48e5e1a585e6740 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_cd0abf42f662c0d6f61434e8c11f2e2d = $(`<div id="html_cd0abf42f662c0d6f61434e8c11f2e2d" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 21.0 μg/m³</strong><br>測站名: 三義<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c5db60597b9a0fc6a48e5e1a585e6740.setContent(html_cd0abf42f662c0d6f61434e8c11f2e2d);
+            
+        
+
+        circle_marker_f05075231b0679ea9ba29772178509d4.bindPopup(popup_c5db60597b9a0fc6a48e5e1a585e6740)
+        ;
+
+        
+    
+    
+            var circle_marker_907edb4a8da06985bb77d4c48c7768e3 = L.circleMarker(
+                [24.56499183, 120.82011468],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_d0ff34448c68ca5c996bf4df77da0c50 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_1c97e99ac3eb1b797cb8bc3cda3d8419 = $(`<div id="html_1c97e99ac3eb1b797cb8bc3cda3d8419" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 34.0 μg/m³</strong><br>測站名: 苗栗<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_d0ff34448c68ca5c996bf4df77da0c50.setContent(html_1c97e99ac3eb1b797cb8bc3cda3d8419);
+            
+        
+
+        circle_marker_907edb4a8da06985bb77d4c48c7768e3.bindPopup(popup_d0ff34448c68ca5c996bf4df77da0c50)
+        ;
+
+        
+    
+    
+            var circle_marker_1a5bdd18827c763d708de2113a8d4c96 = L.circleMarker(
+                [24.69690679, 120.89869286],
+                {"bubblingMouseEvents": true, "color": "#800080ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#800080ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_19ca2732c5326917c02e842a7760e79d = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_e7ea86a1f7c27106ddd35b3230ddfe76 = $(`<div id="html_e7ea86a1f7c27106ddd35b3230ddfe76" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 32.0 μg/m³</strong><br>測站名: 頭份<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_19ca2732c5326917c02e842a7760e79d.setContent(html_e7ea86a1f7c27106ddd35b3230ddfe76);
+            
+        
+
+        circle_marker_1a5bdd18827c763d708de2113a8d4c96.bindPopup(popup_19ca2732c5326917c02e842a7760e79d)
+        ;
+
+        
+    
+    
+            var circle_marker_34e208820a18c66d278a159d4a459cc9 = L.circleMarker(
+                [24.09961111, 120.67844444],
+                {"bubblingMouseEvents": true, "color": "#ff4200ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff4200ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_6ede3c9dc96b04ad56c91e1fee6e2611 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_c2235c5414bb31ee62eee619df476ebf = $(`<div id="html_c2235c5414bb31ee62eee619df476ebf" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 18.0 μg/m³</strong><br>測站名: 大里<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_6ede3c9dc96b04ad56c91e1fee6e2611.setContent(html_c2235c5414bb31ee62eee619df476ebf);
+            
+        
+
+        circle_marker_34e208820a18c66d278a159d4a459cc9.bindPopup(popup_6ede3c9dc96b04ad56c91e1fee6e2611)
+        ;
+
+        
+    
+    
+            var circle_marker_30257d3f2a20566bb0e0c6b401d39a32 = L.circleMarker(
+                [24.162197, 120.616917],
+                {"bubblingMouseEvents": true, "color": "#ff0000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff0000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c33bdca6fdc6cec894e23ae5f358a70a = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_2359a73c7fca82061153dbf8c9ff1131 = $(`<div id="html_2359a73c7fca82061153dbf8c9ff1131" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 20.0 μg/m³</strong><br>測站名: 西屯<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c33bdca6fdc6cec894e23ae5f358a70a.setContent(html_2359a73c7fca82061153dbf8c9ff1131);
+            
+        
+
+        circle_marker_30257d3f2a20566bb0e0c6b401d39a32.bindPopup(popup_c33bdca6fdc6cec894e23ae5f358a70a)
+        ;
+
+        
+    
+    
+            var circle_marker_1f3ff98f43048d7b55516609b73a2070 = L.circleMarker(
+                [24.225628, 120.568794],
+                {"bubblingMouseEvents": true, "color": "#d10000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#d10000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_2ff0ca235cc294b5a24c8419276ce963 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_83a3649ab106d58c1181d9b6864fe17e = $(`<div id="html_83a3649ab106d58c1181d9b6864fe17e" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 22.0 μg/m³</strong><br>測站名: 沙鹿<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_2ff0ca235cc294b5a24c8419276ce963.setContent(html_83a3649ab106d58c1181d9b6864fe17e);
+            
+        
+
+        circle_marker_1f3ff98f43048d7b55516609b73a2070.bindPopup(popup_2ff0ca235cc294b5a24c8419276ce963)
+        ;
+
+        
+    
+    
+            var circle_marker_f0ab4157f018b730fd8e6f7d77342488 = L.circleMarker(
+                [24.151958, 120.641092],
+                {"bubblingMouseEvents": true, "color": "#ff2100ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff2100ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_7568121478e5f5ba0bfbf661a0e11430 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_d4d6db3b004b9fd93810b9b5229810cd = $(`<div id="html_d4d6db3b004b9fd93810b9b5229810cd" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 19.0 μg/m³</strong><br>測站名: 忠明<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_7568121478e5f5ba0bfbf661a0e11430.setContent(html_d4d6db3b004b9fd93810b9b5229810cd);
+            
+        
+
+        circle_marker_f0ab4157f018b730fd8e6f7d77342488.bindPopup(popup_7568121478e5f5ba0bfbf661a0e11430)
+        ;
+
+        
+    
+    
+            var circle_marker_6f448f8304968e0e85d537d72ee313fa = L.circleMarker(
+                [24.25699731, 120.74252414],
+                {"bubblingMouseEvents": true, "color": "#ffa500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa500ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_502477d1b7c5c5adb35a68214ec7903c = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_93624167a05d969000f1ba22d3b84f58 = $(`<div id="html_93624167a05d969000f1ba22d3b84f58" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 15.0 μg/m³</strong><br>測站名: 豐原<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_502477d1b7c5c5adb35a68214ec7903c.setContent(html_93624167a05d969000f1ba22d3b84f58);
+            
+        
+
+        circle_marker_6f448f8304968e0e85d537d72ee313fa.bindPopup(popup_502477d1b7c5c5adb35a68214ec7903c)
+        ;
+
+        
+    
+    
+            var circle_marker_03dace56b79eb88c53944ee66d54478e = L.circleMarker(
+                [23.756389, 120.677306],
+                {"bubblingMouseEvents": true, "color": "#ffc900ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc900ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_5218a07af0dd0f5a07ff743e02811cfe = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_71a86540f4aaa2ebd1780e8aa2e877d1 = $(`<div id="html_71a86540f4aaa2ebd1780e8aa2e877d1" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 13.0 μg/m³</strong><br>測站名: 竹山<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_5218a07af0dd0f5a07ff743e02811cfe.setContent(html_71a86540f4aaa2ebd1780e8aa2e877d1);
+            
+        
+
+        circle_marker_03dace56b79eb88c53944ee66d54478e.bindPopup(popup_5218a07af0dd0f5a07ff743e02811cfe)
+        ;
+
+        
+    
+    
+            var circle_marker_c7454a5164a594fa21bb8c6d16165970 = L.circleMarker(
+                [23.913, 120.685306],
+                {"bubblingMouseEvents": true, "color": "#ffc900ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffc900ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_be61d33b7f7141755d6b6a6c56108429 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_5c90db8b0e4bc706e4672dc59596046a = $(`<div id="html_5c90db8b0e4bc706e4672dc59596046a" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 13.0 μg/m³</strong><br>測站名: 南投<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_be61d33b7f7141755d6b6a6c56108429.setContent(html_5c90db8b0e4bc706e4672dc59596046a);
+            
+        
+
+        circle_marker_c7454a5164a594fa21bb8c6d16165970.bindPopup(popup_be61d33b7f7141755d6b6a6c56108429)
+        ;
+
+        
+    
+    
+            var circle_marker_25ead18bfc0219aa53c65103117d142c = L.circleMarker(
+                [23.968842, 120.967903],
+                {"bubblingMouseEvents": true, "color": "#ffdb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdb00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_1386c027fe92f42d8a792d4966f9243c = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_eae372ba3007b07ff05311a50e0b7470 = $(`<div id="html_eae372ba3007b07ff05311a50e0b7470" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 12.0 μg/m³</strong><br>測站名: 埔里<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_1386c027fe92f42d8a792d4966f9243c.setContent(html_eae372ba3007b07ff05311a50e0b7470);
+            
+        
+
+        circle_marker_25ead18bfc0219aa53c65103117d142c.bindPopup(popup_1386c027fe92f42d8a792d4966f9243c)
+        ;
+
+        
+    
+    
+            var circle_marker_265f2ab8fbe5894228f9ade2c986cc3e = L.circleMarker(
+                [23.925175, 120.409653],
+                {"bubblingMouseEvents": true, "color": "#ff4200ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff4200ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_3c957fcfe321350f6b20bee2f8d807e3 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_f16ccd06cfde3f103f0590da6ac09c16 = $(`<div id="html_f16ccd06cfde3f103f0590da6ac09c16" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 18.0 μg/m³</strong><br>測站名: 二林<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_3c957fcfe321350f6b20bee2f8d807e3.setContent(html_f16ccd06cfde3f103f0590da6ac09c16);
+            
+        
+
+        circle_marker_265f2ab8fbe5894228f9ade2c986cc3e.bindPopup(popup_3c957fcfe321350f6b20bee2f8d807e3)
+        ;
+
+        
+    
+    
+            var circle_marker_0d0b8f0815e29662edbf190cc76754d7 = L.circleMarker(
+                [24.066, 120.541519],
+                {"bubblingMouseEvents": true, "color": "#ff8400ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff8400ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_530152a0da4996cf2fbfde960e189318 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_f5d625a2fbfc7bf3ce088a15fe8c8d90 = $(`<div id="html_f5d625a2fbfc7bf3ce088a15fe8c8d90" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 16.0 μg/m³</strong><br>測站名: 彰化<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_530152a0da4996cf2fbfde960e189318.setContent(html_f5d625a2fbfc7bf3ce088a15fe8c8d90);
+            
+        
+
+        circle_marker_0d0b8f0815e29662edbf190cc76754d7.bindPopup(popup_530152a0da4996cf2fbfde960e189318)
+        ;
+
+        
+    
+    
+            var circle_marker_3a6e0abf11be37ca2628dc50b6a8f171 = L.circleMarker(
+                [24.131672, 120.469061],
+                {"bubblingMouseEvents": true, "color": "#a20000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#a20000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_0c07368b6ee40e9666d83da61fa87cf2 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_8b7ca40f2bed0d4b0ae340f0a6a7790d = $(`<div id="html_8b7ca40f2bed0d4b0ae340f0a6a7790d" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 24.0 μg/m³</strong><br>測站名: 線西<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_0c07368b6ee40e9666d83da61fa87cf2.setContent(html_8b7ca40f2bed0d4b0ae340f0a6a7790d);
+            
+        
+
+        circle_marker_3a6e0abf11be37ca2628dc50b6a8f171.bindPopup(popup_0c07368b6ee40e9666d83da61fa87cf2)
+        ;
+
+        
+    
+    
+            var circle_marker_e1e1d218638b9fd387b903528919f1d6 = L.circleMarker(
+                [23.85493056, 120.26964167],
+                {"bubblingMouseEvents": true, "color": "#808080", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#808080", "fillOpacity": 0.25, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_6441d7405e66c8695c09a0a9a90abba6 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e573df5b648c2067f3e880751e826df9 = $(`<div id="html_e573df5b648c2067f3e880751e826df9" style="width: 100.0%; height: 100.0%;">測站名: 大城<br>No Data</div>`)[0];
+                popup_6441d7405e66c8695c09a0a9a90abba6.setContent(html_e573df5b648c2067f3e880751e826df9);
+            
+        
+
+        circle_marker_e1e1d218638b9fd387b903528919f1d6.bindPopup(popup_6441d7405e66c8695c09a0a9a90abba6)
+        ;
+
+        
+    
+    
+            var circle_marker_3e3c37ca4d068874769670b211634331 = L.circleMarker(
+                [23.711853, 120.544994],
+                {"bubblingMouseEvents": true, "color": "#e80000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#e80000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_a438c2e813efeaa4442cf6339a2eccbb = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_116e4e554c930e14812037cebfd50967 = $(`<div id="html_116e4e554c930e14812037cebfd50967" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 21.0 μg/m³</strong><br>測站名: 斗六<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_a438c2e813efeaa4442cf6339a2eccbb.setContent(html_116e4e554c930e14812037cebfd50967);
+            
+        
+
+        circle_marker_3e3c37ca4d068874769670b211634331.bindPopup(popup_a438c2e813efeaa4442cf6339a2eccbb)
+        ;
+
+        
+    
+    
+            var circle_marker_a38c8255815a29784489d41a3fd2e3f5 = L.circleMarker(
+                [23.757547, 120.348742],
+                {"bubblingMouseEvents": true, "color": "#ffdb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdb00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_519c7a045e1ce2dfe3ecfea66bd3671e = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_bfed921714f4b9bc8d97a823e4d3973f = $(`<div id="html_bfed921714f4b9bc8d97a823e4d3973f" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 12.0 μg/m³</strong><br>測站名: 崙背<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_519c7a045e1ce2dfe3ecfea66bd3671e.setContent(html_bfed921714f4b9bc8d97a823e4d3973f);
+            
+        
+
+        circle_marker_a38c8255815a29784489d41a3fd2e3f5.bindPopup(popup_519c7a045e1ce2dfe3ecfea66bd3671e)
+        ;
+
+        
+    
+    
+            var circle_marker_7c941e8207483f84d96c80ddc0054de0 = L.circleMarker(
+                [23.753506, 120.251825],
+                {"bubblingMouseEvents": true, "color": "#ffa500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa500ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_82d11d5c5b9b35c1798667936705024b = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_d922cde526c8484cbb6c6a6014c20df3 = $(`<div id="html_d922cde526c8484cbb6c6a6014c20df3" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 15.0 μg/m³</strong><br>測站名: 麥寮<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_82d11d5c5b9b35c1798667936705024b.setContent(html_d922cde526c8484cbb6c6a6014c20df3);
+            
+        
+
+        circle_marker_7c941e8207483f84d96c80ddc0054de0.bindPopup(popup_82d11d5c5b9b35c1798667936705024b)
+        ;
+
+        
+    
+    
+            var circle_marker_23286aa6bad0ca7d47d8949bd6d6501b = L.circleMarker(
+                [23.702175, 120.19933333],
+                {"bubblingMouseEvents": true, "color": "#ffa500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa500ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_8666c46728e1a28434a22cafece73254 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_5e5dc7e6b8cc2bb290bf64884f25520e = $(`<div id="html_5e5dc7e6b8cc2bb290bf64884f25520e" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 15.0 μg/m³</strong><br>測站名: 臺西<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_8666c46728e1a28434a22cafece73254.setContent(html_5e5dc7e6b8cc2bb290bf64884f25520e);
+            
+        
+
+        circle_marker_23286aa6bad0ca7d47d8949bd6d6501b.bindPopup(popup_8666c46728e1a28434a22cafece73254)
+        ;
+
+        
+    
+    
+            var circle_marker_6844a71920820f403177fc3a05a651a4 = L.circleMarker(
+                [23.46477865, 120.44125148],
+                {"bubblingMouseEvents": true, "color": "#808080", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#808080", "fillOpacity": 0.25, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_a303a281512f2bcc21692441089c20b8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_019c4338fbd2da0c788b604190ff95df = $(`<div id="html_019c4338fbd2da0c788b604190ff95df" style="width: 100.0%; height: 100.0%;">測站名: 嘉義<br>No Data</div>`)[0];
+                popup_a303a281512f2bcc21692441089c20b8.setContent(html_019c4338fbd2da0c788b604190ff95df);
+            
+        
+
+        circle_marker_6844a71920820f403177fc3a05a651a4.bindPopup(popup_a303a281512f2bcc21692441089c20b8)
+        ;
+
+        
+    
+    
+            var circle_marker_1b994d3aeb84f5d83a0f7f0f804fdc6c = L.circleMarker(
+                [23.46538, 120.2478],
+                {"bubblingMouseEvents": true, "color": "#ffed00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffed00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_59375a1a53ac93417b94eff81d015236 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_592da3372b26e7fcc35cc4a08256f2e6 = $(`<div id="html_592da3372b26e7fcc35cc4a08256f2e6" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 11.0 μg/m³</strong><br>測站名: 朴子<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_59375a1a53ac93417b94eff81d015236.setContent(html_592da3372b26e7fcc35cc4a08256f2e6);
+            
+        
+
+        circle_marker_1b994d3aeb84f5d83a0f7f0f804fdc6c.bindPopup(popup_59375a1a53ac93417b94eff81d015236)
+        ;
+
+        
+    
+    
+            var circle_marker_e53ad3fb2c73a8b88430197f935ee8ab = L.circleMarker(
+                [23.554839, 120.345531],
+                {"bubblingMouseEvents": true, "color": "#ffff00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_a51ab6c327ebed2fef7d755b6c923a5b = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_cb042850e4a8c6d95bb438b8ea68c293 = $(`<div id="html_cb042850e4a8c6d95bb438b8ea68c293" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 10.0 μg/m³</strong><br>測站名: 新港<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_a51ab6c327ebed2fef7d755b6c923a5b.setContent(html_cb042850e4a8c6d95bb438b8ea68c293);
+            
+        
+
+        circle_marker_e53ad3fb2c73a8b88430197f935ee8ab.bindPopup(popup_a51ab6c327ebed2fef7d755b6c923a5b)
+        ;
+
+        
+    
+    
+            var circle_marker_564ec72e0b260a18eb2378e0d8351d44 = L.circleMarker(
+                [23.048197, 120.2175],
+                {"bubblingMouseEvents": true, "color": "#66b300ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66b300ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_e16b492c55f1227f304b22bcaa5aa110 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_5514c4d8f1af841e52f35ed314e89a57 = $(`<div id="html_5514c4d8f1af841e52f35ed314e89a57" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 7.0 μg/m³</strong><br>測站名: 安南<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_e16b492c55f1227f304b22bcaa5aa110.setContent(html_5514c4d8f1af841e52f35ed314e89a57);
+            
+        
+
+        circle_marker_564ec72e0b260a18eb2378e0d8351d44.bindPopup(popup_e16b492c55f1227f304b22bcaa5aa110)
+        ;
+
+        
+    
+    
+            var circle_marker_e99d9b0ac6fcde944a2ba7a8d461700b = L.circleMarker(
+                [23.11337642, 120.29740529],
+                {"bubblingMouseEvents": true, "color": "#cce600ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cce600ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_9f0d4c6330eb7e4bf0c2dc4910cda320 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_47f0393f0c0afa67110578cda8738616 = $(`<div id="html_47f0393f0c0afa67110578cda8738616" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 9.0 μg/m³</strong><br>測站名: 善化<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_9f0d4c6330eb7e4bf0c2dc4910cda320.setContent(html_47f0393f0c0afa67110578cda8738616);
+            
+        
+
+        circle_marker_e99d9b0ac6fcde944a2ba7a8d461700b.bindPopup(popup_9f0d4c6330eb7e4bf0c2dc4910cda320)
+        ;
+
+        
+    
+    
+            var circle_marker_a6a4c6d0b2a3f23f16ce0c79a6080064 = L.circleMarker(
+                [23.305633, 120.31725],
+                {"bubblingMouseEvents": true, "color": "#ffa500ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffa500ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_beb2661700a62c342711ca0e99ad849d = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_fc7da42735192f16fda55b55a67319ce = $(`<div id="html_fc7da42735192f16fda55b55a67319ce" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 15.0 μg/m³</strong><br>測站名: 新營<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_beb2661700a62c342711ca0e99ad849d.setContent(html_fc7da42735192f16fda55b55a67319ce);
+            
+        
+
+        circle_marker_a6a4c6d0b2a3f23f16ce0c79a6080064.bindPopup(popup_beb2661700a62c342711ca0e99ad849d)
+        ;
+
+        
+    
+    
+            var circle_marker_5f7ed9dcb389bfe6fd4037e14d0453dd = L.circleMarker(
+                [22.99123, 120.22085],
+                {"bubblingMouseEvents": true, "color": "#cce600ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cce600ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_08e64d14b9caf598c266db7517283eb2 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_114656b96761b43e396bd3087980d98a = $(`<div id="html_114656b96761b43e396bd3087980d98a" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 9.0 μg/m³</strong><br>測站名: 臺南<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_08e64d14b9caf598c266db7517283eb2.setContent(html_114656b96761b43e396bd3087980d98a);
+            
+        
+
+        circle_marker_5f7ed9dcb389bfe6fd4037e14d0453dd.bindPopup(popup_08e64d14b9caf598c266db7517283eb2)
+        ;
+
+        
+    
+    
+            var circle_marker_ffa42399dd7b938dae82121b0da36c1e = L.circleMarker(
+                [22.56413611, 120.425311],
+                {"bubblingMouseEvents": true, "color": "#cce600ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#cce600ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c4d63bbfe10d8783b25087be006a6fef = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_6cf9efcceadf50d506b8597e83cd4dd0 = $(`<div id="html_6cf9efcceadf50d506b8597e83cd4dd0" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 9.0 μg/m³</strong><br>測站名: 大寮<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c4d63bbfe10d8783b25087be006a6fef.setContent(html_6cf9efcceadf50d506b8597e83cd4dd0);
+            
+        
+
+        circle_marker_ffa42399dd7b938dae82121b0da36c1e.bindPopup(popup_c4d63bbfe10d8783b25087be006a6fef)
+        ;
+
+        
+    
+    
+            var circle_marker_cfb4e5ef5928519eeae47c413a0baccc = L.circleMarker(
+                [22.565833, 120.337736],
+                {"bubblingMouseEvents": true, "color": "#004d66ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#004d66ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_f15c40e37cbd351f4e749c4af359c90d = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_bd19588d75fe50d48e754295258e3345 = $(`<div id="html_bd19588d75fe50d48e754295258e3345" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 3.0 μg/m³</strong><br>測站名: 小港<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_f15c40e37cbd351f4e749c4af359c90d.setContent(html_bd19588d75fe50d48e754295258e3345);
+            
+        
+
+        circle_marker_cfb4e5ef5928519eeae47c413a0baccc.bindPopup(popup_f15c40e37cbd351f4e749c4af359c90d)
+        ;
+
+        
+    
+    
+            var circle_marker_a3d6eeb2aef96028071eed09038c5107 = L.circleMarker(
+                [22.689056, 120.332631],
+                {"bubblingMouseEvents": true, "color": "#ffdb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdb00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_bf529b24d4f138d487fc0f5872d9b4ed = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_5cbdb09de1da6cbf3261fdf4892ce347 = $(`<div id="html_5cbdb09de1da6cbf3261fdf4892ce347" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 12.0 μg/m³</strong><br>測站名: 仁武<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_bf529b24d4f138d487fc0f5872d9b4ed.setContent(html_5cbdb09de1da6cbf3261fdf4892ce347);
+            
+        
+
+        circle_marker_a3d6eeb2aef96028071eed09038c5107.bindPopup(popup_bf529b24d4f138d487fc0f5872d9b4ed)
+        ;
+
+        
+    
+    
+            var circle_marker_949554a38380299bf288789bf90437de = L.circleMarker(
+                [22.674861, 120.292917],
+                {"bubblingMouseEvents": true, "color": "#003399ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#003399ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_1f3e6f64fe5a6b3fc506fc61aa32c5f9 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_6dd5de74bd70e06c49f1157dccc3c7f2 = $(`<div id="html_6dd5de74bd70e06c49f1157dccc3c7f2" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 2.0 μg/m³</strong><br>測站名: 左營<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_1f3e6f64fe5a6b3fc506fc61aa32c5f9.setContent(html_6dd5de74bd70e06c49f1157dccc3c7f2);
+            
+        
+
+        circle_marker_949554a38380299bf288789bf90437de.bindPopup(popup_1f3e6f64fe5a6b3fc506fc61aa32c5f9)
+        ;
+
+        
+    
+    
+            var circle_marker_70b45412ff0f961ac267de54f891c525 = L.circleMarker(
+                [22.4795, 120.41175],
+                {"bubblingMouseEvents": true, "color": "#66b300ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66b300ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c3598d3da135c17fc9465173011f0826 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_4ed7bddf2bfe3daf40000bcb45a5ecc2 = $(`<div id="html_4ed7bddf2bfe3daf40000bcb45a5ecc2" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 7.0 μg/m³</strong><br>測站名: 林園<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c3598d3da135c17fc9465173011f0826.setContent(html_4ed7bddf2bfe3daf40000bcb45a5ecc2);
+            
+        
+
+        circle_marker_70b45412ff0f961ac267de54f891c525.bindPopup(popup_c3598d3da135c17fc9465173011f0826)
+        ;
+
+        
+    
+    
+            var circle_marker_b9f61f0af084f25bc4055a9619c49a6e = L.circleMarker(
+                [22.63390278, 120.28676111],
+                {"bubblingMouseEvents": true, "color": "#0019ccff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#0019ccff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_3c3e335e5232b1a0068973a023fbe10a = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_c8d286bf255a64aa5651a56144657540 = $(`<div id="html_c8d286bf255a64aa5651a56144657540" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 1.0 μg/m³</strong><br>測站名: 前金<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_3c3e335e5232b1a0068973a023fbe10a.setContent(html_c8d286bf255a64aa5651a56144657540);
+            
+        
+
+        circle_marker_b9f61f0af084f25bc4055a9619c49a6e.bindPopup(popup_3c3e335e5232b1a0068973a023fbe10a)
+        ;
+
+        
+    
+    
+            var circle_marker_3f85cd29eaf1935f19ad8e356109db84 = L.circleMarker(
+                [22.6044507, 120.30833356],
+                {"bubblingMouseEvents": true, "color": "#339a00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#339a00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_a3fd74217ddeaedaaa3195d6532ddc4a = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_235a29c1856f95c7f1354314c43136ea = $(`<div id="html_235a29c1856f95c7f1354314c43136ea" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 6.0 μg/m³</strong><br>測站名: 前鎮<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_a3fd74217ddeaedaaa3195d6532ddc4a.setContent(html_235a29c1856f95c7f1354314c43136ea);
+            
+        
+
+        circle_marker_3f85cd29eaf1935f19ad8e356109db84.bindPopup(popup_a3fd74217ddeaedaaa3195d6532ddc4a)
+        ;
+
+        
+    
+    
+            var circle_marker_583c85b587c6137fc2f2ede5689a4900 = L.circleMarker(
+                [22.883583, 120.530542],
+                {"bubblingMouseEvents": true, "color": "#808080", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#808080", "fillOpacity": 0.25, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 5, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_f8f27fff9ed5144f170b7cfaca969337 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_fc5959b1b56d4822a7f66be0ed903d5b = $(`<div id="html_fc5959b1b56d4822a7f66be0ed903d5b" style="width: 100.0%; height: 100.0%;">測站名: 美濃<br>No Data</div>`)[0];
+                popup_f8f27fff9ed5144f170b7cfaca969337.setContent(html_fc5959b1b56d4822a7f66be0ed903d5b);
+            
+        
+
+        circle_marker_583c85b587c6137fc2f2ede5689a4900.bindPopup(popup_f8f27fff9ed5144f170b7cfaca969337)
+        ;
+
+        
+    
+    
+            var circle_marker_8914bff996b71ba428ebd46ccbb63d96 = L.circleMarker(
+                [22.608711, 120.312017],
+                {"bubblingMouseEvents": true, "color": "#008000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_05a2669817e58cbe6945af3e4e0353f7 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_f20b3402ad3831c7c7b0a56fba2d7ed9 = $(`<div id="html_f20b3402ad3831c7c7b0a56fba2d7ed9" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 5.0 μg/m³</strong><br>測站名: 復興<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_05a2669817e58cbe6945af3e4e0353f7.setContent(html_f20b3402ad3831c7c7b0a56fba2d7ed9);
+            
+        
+
+        circle_marker_8914bff996b71ba428ebd46ccbb63d96.bindPopup(popup_05a2669817e58cbe6945af3e4e0353f7)
+        ;
+
+        
+    
+    
+            var circle_marker_3b39f6bc826701927786f1e277e65b50 = L.circleMarker(
+                [22.733667, 120.328289],
+                {"bubblingMouseEvents": true, "color": "#99cd00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#99cd00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_b644cdc461b1edfa208155b7009988ec = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_5927dba686a96e2d0eca5caa381f16c0 = $(`<div id="html_5927dba686a96e2d0eca5caa381f16c0" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 8.0 μg/m³</strong><br>測站名: 楠梓<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_b644cdc461b1edfa208155b7009988ec.setContent(html_5927dba686a96e2d0eca5caa381f16c0);
+            
+        
+
+        circle_marker_3b39f6bc826701927786f1e277e65b50.bindPopup(popup_b644cdc461b1edfa208155b7009988ec)
+        ;
+
+        
+    
+    
+            var circle_marker_5ae32e1c54b4fe17c2c44205f512a29b = L.circleMarker(
+                [22.628126, 120.357422],
+                {"bubblingMouseEvents": true, "color": "#66b300ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66b300ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_c234fc3b3cf6a48d880391c5e8f8f722 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_1a32bb7568060da0ae7fd25067c65b11 = $(`<div id="html_1a32bb7568060da0ae7fd25067c65b11" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 7.0 μg/m³</strong><br>測站名: 鳳山<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_c234fc3b3cf6a48d880391c5e8f8f722.setContent(html_1a32bb7568060da0ae7fd25067c65b11);
+            
+        
+
+        circle_marker_5ae32e1c54b4fe17c2c44205f512a29b.bindPopup(popup_c234fc3b3cf6a48d880391c5e8f8f722)
+        ;
+
+        
+    
+    
+            var circle_marker_28f24ea8f183d1eb04e1b71ec8ed260c = L.circleMarker(
+                [22.757506, 120.305689],
+                {"bubblingMouseEvents": true, "color": "#ffdb00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffdb00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_bc8728356ab79a9156440904281a6b6f = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_910ac9a52060f5e5929065367584e153 = $(`<div id="html_910ac9a52060f5e5929065367584e153" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 12.0 μg/m³</strong><br>測站名: 橋頭<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_bc8728356ab79a9156440904281a6b6f.setContent(html_910ac9a52060f5e5929065367584e153);
+            
+        
+
+        circle_marker_28f24ea8f183d1eb04e1b71ec8ed260c.bindPopup(popup_bc8728356ab79a9156440904281a6b6f)
+        ;
+
+        
+    
+    
+            var circle_marker_3b3d333ab414fcbf957a681bc6eb93c3 = L.circleMarker(
+                [22.673081, 120.488033],
+                {"bubblingMouseEvents": true, "color": "#ffff00ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ffff00ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_92af0c76a53a5d5fd0adb8a5301bc592 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_e647fcf612543888ef2876deaefa8ec6 = $(`<div id="html_e647fcf612543888ef2876deaefa8ec6" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 10.0 μg/m³</strong><br>測站名: 屏東<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_92af0c76a53a5d5fd0adb8a5301bc592.setContent(html_e647fcf612543888ef2876deaefa8ec6);
+            
+        
+
+        circle_marker_3b3d333ab414fcbf957a681bc6eb93c3.bindPopup(popup_92af0c76a53a5d5fd0adb8a5301bc592)
+        ;
+
+        
+    
+    
+            var circle_marker_076555d9decea4ed079d825d6714a3c7 = L.circleMarker(
+                [21.958069, 120.788928],
+                {"bubblingMouseEvents": true, "color": "#66b300ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66b300ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_938609f4024a24a2ed0ff82aa99f293f = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_1f4f7ad66456dad1a73b7e7fd2a085e8 = $(`<div id="html_1f4f7ad66456dad1a73b7e7fd2a085e8" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 7.0 μg/m³</strong><br>測站名: 恆春<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_938609f4024a24a2ed0ff82aa99f293f.setContent(html_1f4f7ad66456dad1a73b7e7fd2a085e8);
+            
+        
+
+        circle_marker_076555d9decea4ed079d825d6714a3c7.bindPopup(popup_938609f4024a24a2ed0ff82aa99f293f)
+        ;
+
+        
+    
+    
+            var circle_marker_1c80eee170dc24c3951b2231087e09f4 = L.circleMarker(
+                [22.523108, 120.561175],
+                {"bubblingMouseEvents": true, "color": "#66b300ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#66b300ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_a7195c8a198834102ca9eec194274701 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_aed2b941418714ac3db3005c7666d106 = $(`<div id="html_aed2b941418714ac3db3005c7666d106" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 7.0 μg/m³</strong><br>測站名: 潮州<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_a7195c8a198834102ca9eec194274701.setContent(html_aed2b941418714ac3db3005c7666d106);
+            
+        
+
+        circle_marker_1c80eee170dc24c3951b2231087e09f4.bindPopup(popup_a7195c8a198834102ca9eec194274701)
+        ;
+
+        
+    
+    
+            var circle_marker_5f3fae73aaf60d4016e9fab12a9363ed = L.circleMarker(
+                [24.632203, 121.792928],
+                {"bubblingMouseEvents": true, "color": "#ff2100ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff2100ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_6380effda64cd962eb244b82109227ac = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_bfca684c3d27f3f12bcc65678676695d = $(`<div id="html_bfca684c3d27f3f12bcc65678676695d" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 19.0 μg/m³</strong><br>測站名: 冬山<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_6380effda64cd962eb244b82109227ac.setContent(html_bfca684c3d27f3f12bcc65678676695d);
+            
+        
+
+        circle_marker_5f3fae73aaf60d4016e9fab12a9363ed.bindPopup(popup_6380effda64cd962eb244b82109227ac)
+        ;
+
+        
+    
+    
+            var circle_marker_d0eee020102ed805fd1f70db41423585 = L.circleMarker(
+                [24.747917, 121.746394],
+                {"bubblingMouseEvents": true, "color": "#ff2100ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#ff2100ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_d31931cae8dcdcdbf3981df94d6a1744 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_b6e24d379561551616be23d3c2100575 = $(`<div id="html_b6e24d379561551616be23d3c2100575" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 19.0 μg/m³</strong><br>測站名: 宜蘭<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_d31931cae8dcdcdbf3981df94d6a1744.setContent(html_b6e24d379561551616be23d3c2100575);
+            
+        
+
+        circle_marker_d0eee020102ed805fd1f70db41423585.bindPopup(popup_d31931cae8dcdcdbf3981df94d6a1744)
+        ;
+
+        
+    
+    
+            var circle_marker_faee3bdae1b6731fc23e61d814644764 = L.circleMarker(
+                [23.971306, 121.599769],
+                {"bubblingMouseEvents": true, "color": "#008000ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#008000ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_133ce0ac6af1fa72074c07dc40b8eb96 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_cce0ff9995e5cfd388b8fe688d6ad4fa = $(`<div id="html_cce0ff9995e5cfd388b8fe688d6ad4fa" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 5.0 μg/m³</strong><br>測站名: 花蓮<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_133ce0ac6af1fa72074c07dc40b8eb96.setContent(html_cce0ff9995e5cfd388b8fe688d6ad4fa);
+            
+        
+
+        circle_marker_faee3bdae1b6731fc23e61d814644764.bindPopup(popup_133ce0ac6af1fa72074c07dc40b8eb96)
+        ;
+
+        
+    
+    
+            var circle_marker_0c0dbc510505c5ff02b0a92734839490 = L.circleMarker(
+                [22.755358, 121.15045],
+                {"bubblingMouseEvents": true, "color": "#004d66ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#004d66ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_fa0a05ff87c34468872964591952fa04 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_ffa876d0dfffa7d8512ad2e123579e46 = $(`<div id="html_ffa876d0dfffa7d8512ad2e123579e46" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 3.0 μg/m³</strong><br>測站名: 臺東<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_fa0a05ff87c34468872964591952fa04.setContent(html_ffa876d0dfffa7d8512ad2e123579e46);
+            
+        
+
+        circle_marker_0c0dbc510505c5ff02b0a92734839490.bindPopup(popup_fa0a05ff87c34468872964591952fa04)
+        ;
+
+        
+    
+    
+            var circle_marker_3de783861e679c095544688dbf17fe2a = L.circleMarker(
+                [23.045083, 121.161933],
+                {"bubblingMouseEvents": true, "color": "#004d66ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#004d66ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_682c3a0166b573870ce776301307125e = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_0a3ee9f37700393961711d61a626084e = $(`<div id="html_0a3ee9f37700393961711d61a626084e" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 3.0 μg/m³</strong><br>測站名: 關山<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_682c3a0166b573870ce776301307125e.setContent(html_0a3ee9f37700393961711d61a626084e);
+            
+        
+
+        circle_marker_3de783861e679c095544688dbf17fe2a.bindPopup(popup_682c3a0166b573870ce776301307125e)
+        ;
+
+        
+    
+    
+            var circle_marker_b58b84378c5b391e37a04903f0319d12 = L.circleMarker(
+                [23.569031, 119.566158],
+                {"bubblingMouseEvents": true, "color": "#006633ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#006633ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_5a373bfb95928b3fa7022a42aaa8588d = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_83e42ad9b4855b42ff37081773e29035 = $(`<div id="html_83e42ad9b4855b42ff37081773e29035" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 4.0 μg/m³</strong><br>測站名: 馬公<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_5a373bfb95928b3fa7022a42aaa8588d.setContent(html_83e42ad9b4855b42ff37081773e29035);
+            
+        
+
+        circle_marker_b58b84378c5b391e37a04903f0319d12.bindPopup(popup_5a373bfb95928b3fa7022a42aaa8588d)
+        ;
+
+        
+    
+    
+            var circle_marker_9ded5dd2a812a5580c5a17f6a8b76583 = L.circleMarker(
+                [24.432133, 118.312256],
+                {"bubblingMouseEvents": true, "color": "#84004dff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#84004dff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_9c76640f88a1769e5f9da6377b236a92 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_c527ebb64361b12e301cfd3dafa8a527 = $(`<div id="html_c527ebb64361b12e301cfd3dafa8a527" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 28.0 μg/m³</strong><br>測站名: 金門<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_9c76640f88a1769e5f9da6377b236a92.setContent(html_c527ebb64361b12e301cfd3dafa8a527);
+            
+        
+
+        circle_marker_9ded5dd2a812a5580c5a17f6a8b76583.bindPopup(popup_9c76640f88a1769e5f9da6377b236a92)
+        ;
+
+        
+    
+    
+            var circle_marker_14db128047dc39906a162962631cfe46 = L.circleMarker(
+                [26.15188416, 119.93149378],
+                {"bubblingMouseEvents": true, "color": "#870033ff", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "#870033ff", "fillOpacity": 1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10, "stroke": true, "weight": 3}
+            ).addTo(map_a38f4ee2ace1fd30cbffdcda265abce0);
+        
+    
+        var popup_a2bddde290d0f4648a13622ab2c7a279 = L.popup({"maxWidth": 250, "minWidth": 200});
+
+        
+            
+                var html_4e5204d95718c086a32c2a28c17bec22 = $(`<div id="html_4e5204d95718c086a32c2a28c17bec22" style="width: 100.0%; height: 100.0%;"><div style='text-align: center; white-space: nowrap;'><strong>測值: 27.0 μg/m³</strong><br>測站名: 馬祖<br>更新時間: 2024-09-10 14:00</div></div>`)[0];
+                popup_a2bddde290d0f4648a13622ab2c7a279.setContent(html_4e5204d95718c086a32c2a28c17bec22);
+            
+        
+
+        circle_marker_14db128047dc39906a162962631cfe46.bindPopup(popup_a2bddde290d0f4648a13622ab2c7a279)
+        ;
+
+        
+    
+</script>
+</html>
